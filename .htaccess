@@ -24,4 +24,13 @@ RewriteRule ^/?customers/?$ customers/create/index.php [QSA,NC,L]
 RewriteCond "%{REQUEST_METHOD}" GET
 RewriteRule ^/?customers/sources/?$ customers/sources/get/index.php [QSA,NC,L]
 
+
+
+## -/-/-/-/-/-/
+## ~ PROJECTS
+## -/-/-/-/-/-/
+# Get a list of all projects from all clients
+RewriteCond "%{REQUEST_METHOD}" GET
+RewriteRule ^/?projects/?$ projects/get/index.php [QSA,NC,L]
+
 </IfModule>
