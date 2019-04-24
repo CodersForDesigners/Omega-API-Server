@@ -10,6 +10,10 @@ DirectorySlash Off
 
 RewriteEngine On
 
+
+
+
+
 ## -/-/-/-/-/-/
 ## ~ CUSTOMERS
 ## -/-/-/-/-/-/
@@ -41,5 +45,9 @@ RewriteRule ^/?projects/?$ projects/get/index.php [QSA,NC,L]
 # Get the role of a user ( given a role id )
 RewriteCond "%{REQUEST_METHOD}" GET
 RewriteRule ^/?backend-users/roles/([^/]*)$ backend-users/roles/get/index.php?roleId=$1 [QSA,NC,L]
+
+
+
+
 
 </IfModule>
