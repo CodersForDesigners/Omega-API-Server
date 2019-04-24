@@ -33,4 +33,13 @@ RewriteRule ^/?customers/sources/?$ customers/sources/get/index.php [QSA,NC,L]
 RewriteCond "%{REQUEST_METHOD}" GET
 RewriteRule ^/?projects/?$ projects/get/index.php [QSA,NC,L]
 
+
+
+## -/-/-/-/-/-/
+## ~ BACKEND USERS
+## -/-/-/-/-/-/
+# Get the role of a user ( given a role id )
+RewriteCond "%{REQUEST_METHOD}" GET
+RewriteRule ^/?backend-users/roles/([^/]*)$ backend-users/roles/get/index.php?roleId=$1 [QSA,NC,L]
+
 </IfModule>
