@@ -103,11 +103,10 @@ try {
 	}
 
 	$response[ 'statusCode' ] = 0;
-	// $response[ 'data' ] = $customer;
 	$response[ 'data' ] = [
 		'recordType' => $customer[ 'recordType' ],
 		'_id' => $customer[ 'id' ] ?? '',
-		'uid' => $customer[ 'UID' ] ?? '',
+		'uid' => $customer[ 'UID' ] ?? $customer[ 'Hidden_UID' ] ?? '',
 		'owner' => $customer[ 'Owner' ][ 'name' ],
 		'isProspect' => $customer[ 'isProspect' ] ?? false,
 		'project' => $project,
@@ -123,12 +122,18 @@ try {
 } catch ( \Exception $e ) {
 
 	// Respond with an error
-	if ( $e->getCode() > 5000 )
-		$response[ 'statusCode' ] = $e->getCode();
-	else
+	if ( $e->getCode() > 5000 ) {
 		$response[ 'statusCode' ] = -1;
+		$response[ 'message' ] = 'Could not determine if the customer already exists on the CRM.';
+	}
+	else
+		$response[ 'statusCode' ] = $e->getCode();
 
 	$response[ 'message' ] = $e->getMessage();
+
+	if ( $e->getCode == 4002 )
+		$response[ 'message' ] = 'More than one customer found with the provided details.';
+
 	http_response_code( 500 );
 
 }

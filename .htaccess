@@ -17,5 +17,8 @@ RewriteEngine On
 RewriteCond "%{REQUEST_METHOD}" GET
 RewriteCond "%{QUERY_STRING}" (^|&)phoneNumber=
 RewriteRule ^/?customers$ customers/get/by-phone-number/index.php [QSA,L,NC]
+# Add new customers
+RewriteCond "%{REQUEST_METHOD}" POST
+RewriteRule ^/?customers/?$ customers/create/index.php [QSA,NC,L]
 
 </IfModule>

@@ -68,7 +68,6 @@ function getAPIResponse ( $endpoint, $method = 'GET', $data = [ ] ) {
 	$response = curl_exec( $httpRequest );
 	curl_close( $httpRequest );
 
-	// die( $response );
 	$body = json_decode( $response, true );
 
 	if ( empty( $body ) )
