@@ -20,5 +20,8 @@ RewriteRule ^/?customers$ customers/get/by-phone-number/index.php [QSA,L,NC]
 # Add new customers
 RewriteCond "%{REQUEST_METHOD}" POST
 RewriteRule ^/?customers/?$ customers/create/index.php [QSA,NC,L]
+# Get a list of all the customer sources
+RewriteCond "%{REQUEST_METHOD}" GET
+RewriteRule ^/?customers/sources/?$ customers/sources/get/index.php [QSA,NC,L]
 
 </IfModule>
