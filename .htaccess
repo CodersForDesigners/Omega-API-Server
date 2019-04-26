@@ -45,6 +45,9 @@ RewriteRule ^/?projects/?$ projects/get/index.php [QSA,NC,L]
 # Get the role of a user ( given a role id )
 RewriteCond "%{REQUEST_METHOD}" GET
 RewriteRule ^/?backend-users/roles/([^/]*)$ backend-users/roles/get/index.php?roleId=$1 [QSA,NC,L]
+# Get the profile of a user ( given a profile id )
+RewriteCond "%{REQUEST_METHOD}" GET
+RewriteRule ^/?backend-users/profiles/([^/]*)$ backend-users/profiles/get/index.php?profileId=$1 [QSA,NC,L]
 
 
 
