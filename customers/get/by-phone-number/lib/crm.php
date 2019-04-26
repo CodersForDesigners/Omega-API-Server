@@ -152,10 +152,10 @@ function getRecordWhere ( $recordType, $criteria = [ ] ) {
 		return null;
 
 	// If more than one record was found
-	if ( $responseBody[ 'info' ][ 'count' ] > 1 ) {
-		$errorMessage = 'More than one ' . $recordType . ' found with the given criteria; ' . json_encode( $criteria ) . '.';
-		throw new \Exception( $errorMessage, 4002 );
-	}
+	// if ( $responseBody[ 'info' ][ 'count' ] > 1 ) {
+	// 	$errorMessage = 'More than one ' . $recordType . ' found with the given criteria; ' . json_encode( $criteria ) . '.';
+	// 	throw new \Exception( $errorMessage, 4002 );
+	// }
 
 	$record = array_filter( $responseBody[ 'data' ][ 0 ] );
 	$record[ 'recordType' ] = $recordType;
