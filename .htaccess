@@ -27,6 +27,9 @@ RewriteRule ^/?customers/?$ customers/create/index.php [QSA,NC,L]
 # Update a customer
 RewriteCond "%{REQUEST_METHOD}" POST
 RewriteRule ^/?customers/([^/]*)$ customers/update/index.php?_anId=$1 [QSA,NC,L]
+# Create an activity for the salesperson that manages a given customer
+RewriteCond "%{REQUEST_METHOD}" POST
+RewriteRule ^/?customers/([^/]*)/activities$ customers/activities/create/index.php?_id=$1 [QSA,NC,L]
 # Get a list of all the customer sources
 RewriteCond "%{REQUEST_METHOD}" GET
 RewriteRule ^/?customers/sources/?$ customers/sources/get/index.php [QSA,NC,L]
