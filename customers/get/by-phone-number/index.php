@@ -108,6 +108,7 @@ try {
 		'_id' => $customer[ 'id' ] ?? '',
 		'uid' => $customer[ 'UID' ] ?? $customer[ 'Hidden_UID' ] ?? '',
 		'owner' => $customer[ 'Owner' ][ 'name' ],
+		'ownerId' => $customer[ 'Owner' ][ 'id' ],
 		'isProspect' => $customer[ 'isProspect' ] ?? false,
 		'project' => $project,
 		'name' => $customer[ 'Full_Name' ] ?? '',
