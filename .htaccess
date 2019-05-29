@@ -46,14 +46,14 @@ RewriteRule ^/?projects/?$ projects/get/index.php [QSA,NC,L]
 
 
 ## -/-/-/-/-/-/
-## ~ BACKEND USERS
+## ~ SALESPEOPLE
 ## -/-/-/-/-/-/
 # Get the role of a user ( given a role id )
 RewriteCond "%{REQUEST_METHOD}" GET
-RewriteRule ^/?backend-users/roles/([^/]*)$ salespeople/roles/get/index.php?roleId=$1 [QSA,NC,L]
+RewriteRule ^/?salespeople/roles/([^/]*)$ salespeople/roles/get/index.php?roleId=$1 [QSA,NC,L]
 # Get the profile of a user ( given a profile id )
 RewriteCond "%{REQUEST_METHOD}" GET
-RewriteRule ^/?backend-users/profiles/([^/]*)$ salespeople/profiles/get/index.php?profileId=$1 [QSA,NC,L]
+RewriteRule ^/?salespeople/profiles/([^/]*)$ salespeople/profiles/get/index.php?profileId=$1 [QSA,NC,L]
 
 
 
