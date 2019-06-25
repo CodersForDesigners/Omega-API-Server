@@ -15,6 +15,11 @@ RewriteEngine On
 
 
 ## -/-/-/-/-/-/
+## ~ DELEGATE TO THE SERVER
+## -/-/-/-/-/-/
+RewriteRule ^(n/.*) http://localhost:9991/$1 [P,L]
+
+## -/-/-/-/-/-/
 ## ~ CUSTOMERS
 ## -/-/-/-/-/-/
 # Get customers by phone number

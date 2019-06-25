@@ -15,6 +15,16 @@ mkdir -p ../environment/${PROJECT_DIR}
 ln -s ../environment/${PROJECT_DIR} __environment
 
 # -/-/-/-/-
+# Install the third-party packages
+# -/-/-/-/-
+npm install
+
+# -/-/-/-/-
+# Reload the node processes
+# -/-/-/-/-
+pm2 reload "cupid"
+
+# -/-/-/-/-
 # Set up all the scheduled tasks
 # -/-/-/-/-
 chmod 744 setup/zoho-refresh-api-tokens.php
