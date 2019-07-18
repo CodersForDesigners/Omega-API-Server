@@ -131,11 +131,21 @@ function _getStringifiedCriterion ( $name, $relation__value ) {
 	else if ( is_array( $relation__value ) ) {
 		$operator = $relation__value[ 0 ];
 		$value = $relation__value[ 1 ];
-		$criteriaString = '(' . $name . ':' . DATA::$operatorRelationMap[ $operator ] . ':' . urlencode( $value ) . ')';
+		$criteriaString = '(' . $name . ':' . DATA::$operatorRelationMap[ $operator ] . ':';
+		// If the value has spaces, then urlencode it, else don't
+		if ( preg_match( '/\s/', $value ) === 1 )
+			$criteriaString = urlencode( $value ) . ')';
+		else
+			$criteriaString = $value . ')';
 	}
 	else {
 		$value = $relation__value;
-		$criteriaString = '(' . $name . ':equals:' . urlencode( $value ) . ')';
+		$criteriaString = '(' . $name . ':equals:';
+		// If the value has spaces, then urlencode it, else don't
+		if ( preg_match( '/\s/', $value ) === 1 )
+			$criteriaString = urlencode( $value ) . ')';
+		else
+			$criteriaString = $value . ')';
 	}
 
 	return $criteriaString;
